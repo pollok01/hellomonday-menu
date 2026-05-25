@@ -29,6 +29,8 @@
       font-family: Georgia, serif;
       color: #4b3828;
       overflow-x: hidden;
+      overscroll-behavior-x: none;
+      animation: fade .4s ease;
     }
 
     .header {
@@ -163,6 +165,18 @@
         display: none;
       }
     }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 
@@ -224,7 +238,7 @@
   </div>
 
   <div class="footer">
-    OPEN DAILY : 8 AM - 6 PM
+    Open Daily • 8 AM — 6 PM
   </div>
 
   <script>
