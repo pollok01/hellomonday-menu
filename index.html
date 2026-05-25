@@ -58,7 +58,7 @@
     }
 
     .menu-wrapper {
-      padding: 18px 18px 40px;
+      padding: 12px 8px 32px;
     }
 
     .menu-title {
@@ -79,11 +79,11 @@
 
     .gallery {
       display: flex;
-      gap: 18px;
+      gap: 10px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding-bottom: 10px;
-      padding-inline: 4%;
+      padding-inline: 1%;
 
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
@@ -102,10 +102,10 @@
     }
 
     .card {
-      min-width: 92%;
+      min-width: 96%;
       scroll-snap-align: center;
       scroll-snap-stop: always;
-      border-radius: 26px;
+      border-radius: 20px;
       overflow: hidden;
       background: white;
       box-shadow: 0 8px 24px rgba(60, 40, 20, .08);
@@ -116,6 +116,8 @@
     .card img {
       width: 100%;
       display: block;
+      height: auto;
+      object-fit: contain;
 
       user-select: none;
       -webkit-user-drag: none;
