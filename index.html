@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5efe7">
   <meta property="og:title" content="Hello Monday Cafe Menu">
   <meta property="og:description" content="Coffee • Dessert • Slow Moments">
   <meta property="og:image" content="images/Menu-02.webp">
@@ -121,16 +122,6 @@
       pointer-events: none;
     }
 
-    .page {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(255, 255, 255, .92);
-      border: 1px solid #dbcab5;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-    }
 
     .counter {
       display: flex;
@@ -167,12 +158,6 @@
       text-align: center;
       font-size: 12px;
       color: #876f57;
-    }
-
-    @media (max-width:640px) {
-      .page {
-        display: none;
-      }
     }
 
     @keyframes fade {
@@ -289,23 +274,40 @@
   </script>
 
   <script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      gallery.scrollBy({
-        left: 40,
-        behavior: 'smooth'
-      });
+    let touched = false;
+
+    gallery.addEventListener('touchstart', () => {
+      touched = true;
+    });
+
+    window.addEventListener('load', () => {
+
+      if (touched) return;
 
       setTimeout(() => {
+
+        if (touched) return;
+
         gallery.scrollBy({
-          left: -40,
+          left: 60,
           behavior: 'smooth'
         });
-      }, 400);
 
-    }, 700);
-  });
-</script>
+        setTimeout(() => {
+
+          if (touched) return;
+
+          gallery.scrollBy({
+            left: -60,
+            behavior: 'smooth'
+          });
+
+        }, 500);
+
+      }, 900);
+
+    });
+  </script>
 
 </body>
 
