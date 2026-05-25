@@ -37,7 +37,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 239, 231, .92);
+      background: rgba(245, 239, 231, .78);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(219, 202, 182, .55);
       padding: 16px 20px;
@@ -136,14 +136,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
 
-      margin: 18px 0 28px;
+      margin: 14px 0 18px;
 
-      font-size: 13px;
-      color: #8c735b;
+      font-size: 15px;
+      letter-spacing: .04em;
 
-      letter-spacing: .08em;
+      color: #7a6048;
+    }
+
+    #current {
+      font-size: 18px;
+      color: #4b3828;
+    }
+
+    #total {
+      opacity: .55;
     }
 
     .footer {
@@ -154,9 +163,9 @@
       background: rgba(245, 239, 231, .95);
       backdrop-filter: blur(10px);
       border-top: 1px solid #dcc9b5;
-      padding: 14px 18px;
+      padding: 10px 18px;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       color: #876f57;
     }
 
