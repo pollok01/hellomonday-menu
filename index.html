@@ -32,6 +32,7 @@
       overflow-x: hidden;
       overscroll-behavior-x: none;
       animation: fade .4s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .header {
@@ -93,8 +94,8 @@
 
       mask-image: linear-gradient(to right,
           transparent,
-          black 4%,
-          black 96%,
+          black 2%,
+          black 98%,
           transparent);
     }
 
@@ -159,8 +160,10 @@
       width: 32px;
       height: 32px;
 
-      border: none;
+      border:1px solid rgba(220,201,181,.5);
       border-radius: 999px;
+
+      
 
       background: rgba(255, 255, 255, .45);
 
@@ -326,7 +329,7 @@
         if (touched) return;
 
         gallery.scrollBy({
-          left: 60,
+          left: 36,
           behavior: 'smooth'
         });
 
@@ -341,7 +344,7 @@
 
         }, 500);
 
-      }, 900);
+      }, 450);
 
     });
   </script>
