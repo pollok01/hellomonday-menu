@@ -10,6 +10,7 @@
   <meta property="og:image" content="images/Menu-02.webp">
 
   <link rel="preload" as="image" href="images/Menu-02.webp">
+  <link rel="preload" as="image" href="images/Menu-03.webp">
   <link rel="icon" href="images/favicon.png">
 
   <title>Hello Monday cafe</title>
@@ -207,6 +208,7 @@
       z-index: 9999;
 
       padding: 20px;
+      overflow:auto;
     }
 
     .viewer.active {
@@ -224,7 +226,9 @@
       border-radius: 12px;
 
       user-select: none;
+      touch-action:manipulation;
       -webkit-user-drag: none;
+      
     }
 
     .close-viewer {
@@ -284,35 +288,35 @@
       </div>
 
       <div class="card">
-        <img src="images/Menu-03.webp">
+        <img loading="lazy" src="images/Menu-03.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-04.webp">
+        <img loading="lazy" src="images/Menu-04.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-05.webp">
+        <img loading="lazy" src="images/Menu-05.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-06.webp">
+        <img loading="lazy" src="images/Menu-06.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-07.webp">
+        <img loading="lazy" src="images/Menu-07.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-08.webp">
+        <img loading="lazy" src="images/Menu-08.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-09.webp">
+        <img loading="lazy" src="images/Menu-09.webp">
       </div>
 
       <div class="card">
-        <img src="images/Menu-10.webp">
+        <img loading="lazy" src="images/Menu-10.webp">
       </div>
 
     </div>
@@ -412,7 +416,7 @@
           if (touched) return;
 
           gallery.scrollBy({
-            left: -60,
+            left: -36,
             behavior: 'smooth'
           });
 
