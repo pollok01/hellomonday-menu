@@ -8,6 +8,9 @@
   <meta property="og:description" content="Coffee • Dessert • Slow Moments">
   <meta property="og:image" content="images/Menu-02.webp">
 
+  <link rel="preload" as="image" href="images/Menu-02.webp">
+  <link rel="icon" href="images/favicon.png">
+
   <title>Hello Monday cafe</title>
 
   <style>
@@ -34,7 +37,7 @@
       z-index: 100;
       background: rgba(245, 239, 231, .92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #dbcab6;
+      border-bottom: 1px solid rgba(219, 202, 182, .55);
       padding: 16px 20px;
     }
 
@@ -52,7 +55,7 @@
     }
 
     .menu-wrapper {
-      padding: 0 18px 40px;
+      padding: 18px 18px 40px;
     }
 
     .menu-title {
@@ -97,10 +100,11 @@
     .card {
       min-width: 92%;
       scroll-snap-align: center;
+      scroll-snap-stop: always;
       border-radius: 26px;
       overflow: hidden;
       background: white;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .10);
+      box-shadow: 0 8px 24px rgba(60, 40, 20, .08);
       border: 1px solid #dcc9b4;
       position: relative;
     }
@@ -123,6 +127,20 @@
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 12px;
+    }
+
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+
+      margin: 18px 0 28px;
+
+      font-size: 13px;
+      color: #8c735b;
+
+      letter-spacing: .08em;
     }
 
     .footer {
@@ -151,13 +169,11 @@
 
   <div class="header">
     <small>Hello Monday cafe</small>
-    <h1>Menu</h1>
   </div>
 
   <div class="menu-wrapper">
 
     <div class="menu-title">
-      <small>Browse Menu</small>
       <h2>Coffee & Dessert</h2>
     </div>
 
@@ -165,50 +181,47 @@
 
 
       <div class="card">
-        <span class="page">Page 1</span>
         <img src="images/Menu-02.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 2</span>
         <img src="images/Menu-03.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 3</span>
         <img src="images/Menu-04.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 4</span>
         <img src="images/Menu-05.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 5</span>
         <img src="images/Menu-06.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 6</span>
         <img src="images/Menu-07.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 7</span>
         <img src="images/Menu-08.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 8</span>
         <img src="images/Menu-09.webp">
       </div>
 
       <div class="card">
-        <span class="page">Page 9</span>
         <img src="images/Menu-10.webp">
       </div>
 
+    </div>
+
+    <div class="counter">
+      <span id="current">1</span>
+      /
+      <span id="total">9</span>
     </div>
 
   </div>
@@ -216,6 +229,44 @@
   <div class="footer">
     OPEN DAILY : 8 AM - 6 PM
   </div>
+
+  <script>
+    const gallery = document.querySelector('.gallery');
+    const cards = document.querySelectorAll('.card');
+
+    const current = document.getElementById('current');
+    const total = document.getElementById('total');
+
+    total.textContent = cards.length;
+
+    gallery.addEventListener('scroll', () => {
+      const galleryCenter =
+        gallery.scrollLeft + gallery.offsetWidth / 2;
+
+      let activeIndex = 0;
+
+      cards.forEach((card, index) => {
+        const cardCenter =
+          card.offsetLeft + card.offsetWidth / 2;
+
+        const distance =
+          Math.abs(galleryCenter - cardCenter);
+
+        if (
+          distance <
+          Math.abs(
+            galleryCenter -
+            (cards[activeIndex].offsetLeft +
+              cards[activeIndex].offsetWidth / 2)
+          )
+        ) {
+          activeIndex = index;
+        }
+      });
+
+      current.textContent = activeIndex + 1;
+    });
+  </script>
 
 </body>
 
