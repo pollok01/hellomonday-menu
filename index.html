@@ -1,119 +1,148 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Hello Monday Cafe Menu">
+  <meta property="og:description" content="Coffee • Dessert • Slow Moments">
+  <meta property="og:image" content="images/Menu-02.webp">
 
   <title>Hello Monday cafe</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      background:#f5efe7;
+    body {
+      background:
+        linear-gradient(rgba(255, 255, 255, .35), rgba(255, 255, 255, .35)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+      background-color: #f5efe7;
       font-family: Georgia, serif;
-      color:#4b3828;
-      overflow-x:hidden;
+      color: #4b3828;
+      overflow-x: hidden;
     }
 
-    .header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      background:rgba(245,239,231,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid #dbcab6;
-      padding:16px 20px;
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 239, 231, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #dbcab6;
+      padding: 16px 20px;
     }
 
-    .header small{
-      letter-spacing:4px;
-      text-transform:uppercase;
-      color:#9a7d5f;
-      font-size:10px;
+    .header small {
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #9a7d5f;
+      font-size: 10px;
     }
 
-    .header h1{
-      margin-top:4px;
-      font-size:24px;
-      font-weight:normal;
+    .header h1 {
+      margin-top: 4px;
+      font-size: 24px;
+      font-weight: normal;
     }
 
-    .menu-wrapper{
-      padding:0 18px 120px;
+    .menu-wrapper {
+      padding: 0 18px 40px;
     }
 
-    .menu-title{
-      margin-bottom:14px;
+    .menu-title {
+      margin-bottom: 14px;
     }
 
-    .menu-title small{
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#9b8268;
-      font-size:10px;
+    .menu-title small {
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9b8268;
+      font-size: 10px;
     }
 
-    .menu-title h2{
-      margin-top:4px;
-      font-weight:normal;
+    .menu-title h2 {
+      margin-top: 4px;
+      font-weight: normal;
     }
 
-    .gallery{
-      display:flex;
-      gap:18px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      padding-bottom:10px;
+    .gallery {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+
+      scrollbar-width: none;
+
+      mask-image: linear-gradient(to right,
+          transparent,
+          black 4%,
+          black 96%,
+          transparent);
     }
 
-    .gallery::-webkit-scrollbar{
-      display:none;
+    .gallery::-webkit-scrollbar {
+      display: none;
     }
 
-    .card{
-      min-width:88%;
-      scroll-snap-align:center;
-      border-radius:26px;
-      overflow:hidden;
-      background:white;
-      box-shadow:0 12px 30px rgba(0,0,0,.10);
-      border:1px solid #dcc9b4;
-      position:relative;
+    .card {
+      min-width: 92%;
+      scroll-snap-align: center;
+      border-radius: 26px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .10);
+      border: 1px solid #dcc9b4;
+      position: relative;
     }
 
-    .card img{
-      width:100%;
-      display:block;
+    .card img {
+      width: 100%;
+      display: block;
+
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
     }
 
-    .page{
-      position:absolute;
-      top:14px;
-      right:14px;
-      background:rgba(255,255,255,.92);
-      border:1px solid #dbcab5;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:12px;
+    .page {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, .92);
+      border: 1px solid #dbcab5;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
     }
 
-    .footer{
-      position:fixed;
-      bottom:0;
-      left:0;
-      right:0;
-      background:rgba(245,239,231,.95);
-      backdrop-filter:blur(10px);
-      border-top:1px solid #dcc9b5;
-      padding:14px 18px;
-      text-align:center;
-      font-size:13px;
-      color:#876f57;
+    .footer {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(245, 239, 231, .95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #dcc9b5;
+      padding: 14px 18px;
+      text-align: center;
+      font-size: 13px;
+      color: #876f57;
+    }
+
+    @media (max-width:640px) {
+      .page {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -129,7 +158,7 @@
 
     <div class="menu-title">
       <small>Browse Menu</small>
-      <h2>Swipe Through</h2>
+      <h2>Coffee & Dessert</h2>
     </div>
 
     <div class="gallery">
@@ -189,4 +218,5 @@
   </div>
 
 </body>
+
 </html>
