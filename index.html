@@ -288,6 +288,25 @@
     });
   </script>
 
+  <script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      gallery.scrollBy({
+        left: 40,
+        behavior: 'smooth'
+      });
+
+      setTimeout(() => {
+        gallery.scrollBy({
+          left: -40,
+          behavior: 'smooth'
+        });
+      }, 400);
+
+    }, 700);
+  });
+</script>
+
 </body>
 
 </html>
