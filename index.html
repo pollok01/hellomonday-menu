@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
   <meta name="theme-color" content="#f5efe7">
   <meta property="og:title" content="Hello Monday Cafe Menu">
   <meta property="og:description" content="Coffee • Dessert • Slow Moments">
@@ -123,7 +123,6 @@
 
       user-select: none;
       -webkit-user-drag: none;
-      pointer-events: none;
     }
 
 
@@ -160,10 +159,10 @@
       width: 32px;
       height: 32px;
 
-      border:1px solid rgba(220,201,181,.5);
+      border: 1px solid rgba(220, 201, 181, .5);
       border-radius: 999px;
 
-      
+
 
       background: rgba(255, 255, 255, .45);
 
@@ -188,6 +187,71 @@
 
     .nav:active {
       transform: scale(.92);
+    }
+
+    .viewer {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(20, 16, 12, .94);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: .25s ease;
+
+      z-index: 9999;
+
+      padding: 20px;
+    }
+
+    .viewer.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .viewer img {
+      width: 100%;
+      max-width: 1200px;
+      max-height: 100%;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .close-viewer {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+
+      width: 40px;
+      height: 40px;
+
+      border: none;
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, .12);
+
+      backdrop-filter: blur(10px);
+
+      color: white;
+
+      font-size: 28px;
+      line-height: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
     }
 
     @keyframes fade {
@@ -271,6 +335,16 @@
       </button>
 
     </div>
+
+  </div>
+
+  <div class="viewer" id="viewer">
+
+    <button class="close-viewer" id="closeViewer">
+      ×
+    </button>
+
+    <img id="viewerImage">
 
   </div>
 
@@ -365,6 +439,46 @@
         left: -gallery.offsetWidth * 0.9,
         behavior: 'smooth'
       });
+    });
+  </script>
+
+  <script>
+    const viewer = document.getElementById('viewer');
+    const viewerImage = document.getElementById('viewerImage');
+    const closeViewer = document.getElementById('closeViewer');
+
+    const images = document.querySelectorAll('.card img');
+
+    images.forEach(img => {
+
+      img.addEventListener('click', () => {
+
+        viewerImage.src = img.src;
+
+        viewer.classList.add('active');
+
+        document.body.style.overflow = 'hidden';
+
+      });
+
+    });
+
+    function closeModal() {
+
+      viewer.classList.remove('active');
+
+      document.body.style.overflow = '';
+
+    }
+
+    closeViewer.addEventListener('click', closeModal);
+
+    viewer.addEventListener('click', (e) => {
+
+      if (e.target === viewer) {
+        closeModal();
+      }
+
     });
   </script>
 
